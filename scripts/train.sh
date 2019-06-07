@@ -16,4 +16,4 @@ model_name=model_moses_10k
 
 mkdir -p $models/$model_name
 
-OMP_NUM_THREADS=$num_threads mtrain $data/train de en -o $models/$model_name -t $data/dev --temp_dir /var/tmp
+mtrain $data/train de en -o $models/$model_name --threads $num_threads --eval $data/test --eval_tool sacrebleu
