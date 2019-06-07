@@ -58,7 +58,7 @@ git clone https://github.com/ZurichNLP/mtrain.git $tools/mtrain
 
 # install sacrebleu for evaluation
 
-pip install sacrebleu
+pip install sacrebleu==1.3.1
 
 # install BPE library
 
