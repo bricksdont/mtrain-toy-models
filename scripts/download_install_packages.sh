@@ -54,7 +54,7 @@ echo "Make sure this script is executed AFTER you have activated a virtualenv"
 # install mtrain, currently: sacrebleu branch
 
 git clone https://github.com/ZurichNLP/mtrain.git $tools/mtrain
-(cd $tools/mtrain && checkout sacrebleu && pip install .)
+(cd $tools/mtrain && git checkout sacrebleu && pip install .)
 
 # install sacrebleu for evaluation
 

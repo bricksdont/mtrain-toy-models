@@ -1,6 +1,19 @@
 #! /bin/bash
 
-export MOSES_HOME=/mnt/storage/clfiles/resources/applications/mt/moses/v3.0
-export FASTALIGN_HOME=/mnt/storage/clfiles/resources/applications/aligner/fast_align/vGit/build
+# make sure to use absolute paths
 
-mtrain /home/user/mmueller/mtrain-test/data/corpus de fr -o /home/user/mmueller/mtrain-test/models/moses_10k
+script=`realpath $0`
+scripts=`dirname $script`
+base=$scripts/..
+
+models=$base/models
+mkdir -p $models
+
+data=$base/data
+
+num_threads=24
+model_name=model_moses_10k
+
+mkdir -p $models/$model_name
+
+OMP_NUM_THREADS=$num_threads mtrain $data/train de en -o $models/$model_name -t $data/dev --temp_dir /var/tmp
